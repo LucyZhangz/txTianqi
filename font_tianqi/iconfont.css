@@ -1,0 +1,83 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3448618 */
+  src: url('iconfont.woff2?t=1654328506614') format('woff2'),
+       url('iconfont.woff?t=1654328506614') format('woff'),
+       url('iconfont.ttf?t=1654328506614') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-tianqi:before {
+  content: "\e60b";
+}
+
+.icon-tianqi1:before {
+  content: "\e61a";
+}
+
+.icon-tianqi2:before {
+  content: "\e61b";
+}
+
+.icon-tianqi-dayu:before {
+  content: "\e62a";
+}
+
+.icon-tianqi-yintian:before {
+  content: "\e64b";
+}
+
+.icon-tianqi-dayu1:before {
+  content: "\e687";
+}
+
+.icon-tianqi3:before {
+  content: "\e640";
+}
+
+.icon-tianqi4:before {
+  content: "\e634";
+}
+
+.icon-tianqi-qing:before {
+  content: "\e614";
+}
+
+.icon-tianqi-dayu2:before {
+  content: "\e62b";
+}
+
+.icon-tianqi-yin:before {
+  content: "\e62c";
+}
+
+.icon-tianqi-:before {
+  content: "\e638";
+}
+
+.icon-tianqi5:before {
+  content: "\ec61";
+}
+
+.icon-shidu:before {
+  content: "\e62f";
+}
+
+.icon-cheliang:before {
+  content: "\e629";
+}
+
+.icon-fengxiang:before {
+  content: "\ea32";
+}
+
+.icon-qiya:before {
+  content: "\e6c0";
+}
+

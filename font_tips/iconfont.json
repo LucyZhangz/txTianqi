@@ -1,0 +1,51 @@
+{
+  "id": "3448618",
+  "name": "txtq",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "479457",
+      "name": "洗车",
+      "font_class": "xiche",
+      "unicode": "e632",
+      "unicode_decimal": 58930
+    },
+    {
+      "icon_id": "970780",
+      "name": "太阳",
+      "font_class": "taiyang-copy",
+      "unicode": "e64c",
+      "unicode_decimal": 58956
+    },
+    {
+      "icon_id": "1048414",
+      "name": "运动户外类目",
+      "font_class": "yundonghuwaileimu",
+      "unicode": "e6ea",
+      "unicode_decimal": 59114
+    },
+    {
+      "icon_id": "1301391",
+      "name": "衣服",
+      "font_class": "yifu",
+      "unicode": "e666",
+      "unicode_decimal": 58982
+    },
+    {
+      "icon_id": "17605490",
+      "name": "药丸",
+      "font_class": "yaowan",
+      "unicode": "e818",
+      "unicode_decimal": 59416
+    },
+    {
+      "icon_id": "21483071",
+      "name": "雨伞",
+      "font_class": "yusan",
+      "unicode": "f53a",
+      "unicode_decimal": 62778
+    }
+  ]
+}

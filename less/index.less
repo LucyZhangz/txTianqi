@@ -1,0 +1,631 @@
+@import './base.less';
+@import './normalize.less';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: url(../imgs/beijing.jpg) no-repeat;
+    background-color: #f6f9fe;
+}
+
+.wrapper {
+    width: 1200px;
+    // background-color: #fff;
+    margin: 0 auto;
+}
+
+.tengxun {
+    width: 100%;
+
+    .nav {
+        height: 60px;
+        display: flex;
+        justify-content: space-between;
+        padding-right: 10px;
+        align-items: center;
+        border-bottom: 1px solid rgba(225, 225, 225, .24);
+
+        .logo {
+            img {
+                padding-top: 10px;
+                padding-left: 10px;
+            }
+        }
+
+        .header-right {
+            display: flex;
+            justify-content: space-around;
+
+            .look {
+                font-size: 12px;
+                line-height: 60px;
+            }
+
+            div {
+                margin-left: 10px;
+                color: #fff;
+            }
+
+            .header-location {
+                display: flex;
+                justify-content: space-around;
+                font-size: 14px;
+                line-height: 60px;
+
+                img {
+                    height: 16px;
+                    width: 16px;
+                    line-height: 60px;
+                    margin-top: 20px;
+                    margin-right: 5px;
+                }
+
+            }
+
+            .guanzhu {
+                color: #fff;
+                font-size: 14px;
+                line-height: 60px;
+            }
+
+            .search {
+                line-height: 60px;
+                position: relative;
+
+                input {
+                    width: 250px;
+                    height: 15px;
+                    color: rgba(255, 255, 255, .7);
+                    border-radius: 49px;
+                    font-size: 14px;
+                    padding: 5px 10px;
+                    background: rgba(255, 255, 255, .2);
+                    outline: none;
+                    border: none;
+                }
+
+                #ct-hot-city {
+                    display: none;
+                    position: absolute;
+                    top: 60px;
+                    width: 270px;
+                    height: 400px;
+                    background: #fff;
+                    box-shadow: 0 0 4px 0 rgb(0 0 0 / 15%);
+                    border-radius: 5px;
+                    margin-top: 4px;
+                    padding: 20px 0 10px;
+
+                    .tit {
+                        font-size: 12px;
+                        color: #9f9f9f;
+                        height: 12px;
+                        line-height: 12px;
+                        margin-bottom: 8px;
+                        margin-top: 2px;
+                        clear: both;
+                        padding: 0 20px;
+                    }
+
+                    #cur-location {
+                        display: none;
+                        height: 14px;
+                        line-height: 14px;
+                        cursor: pointer;
+                        margin-bottom: 10px;
+                        float: left;
+                        margin-left: 20px;
+                        color: #000;
+                        font-size: 14px;
+                    }
+
+                    #ct-history {
+                        clear: both;
+                        // margin-bottom: 14px;
+                        .tit{
+                            display: inline-block;
+                        }
+                        #btn-clean {
+                            display: inline-block;
+                            width: 40px;
+                            height: 18px;
+                            line-height: 18px;
+                            text-align: center;
+                            border-radius: 9px;
+                            background-color: #f0f0f0;
+                            font-size: 12px;
+                            color: #868686;
+                            cursor: pointer;
+                            margin-right: 20px;
+                        }
+
+                        #ls-history {
+                            .ls-opts{
+                                display: inline-block;
+                                span{
+                                    display: inline-block;
+                                    // width: 50px;
+                                    // height: 16px;
+                                    color: #000;
+                                    font-size: 14px;
+                                    line-height: 14px;
+                                }
+                            }
+                        }
+                    }
+
+                    .ls-city .opts {
+                        float: left;
+                        width: 60px;
+                        height: 28px;
+                        font-size: 14px;
+                        cursor: pointer;
+                        text-align: left;
+                        color: #000;
+                        line-height: 28px;
+                        
+                    }
+
+                    .ls-city {
+                        clear: both;
+                        margin: 0 2px 0 16px;
+                    }
+
+                }
+
+
+            }
+
+        }
+    }
+
+    .ct-current {
+        margin-top: 50px;
+
+        .detail {
+            display: inline-block;
+
+            .ct-time {
+                font-size: 14px;
+                color: #fff;
+                opacity: .6;
+                height: 19px;
+                line-height: 19px;
+                margin-bottom: 20px
+            }
+
+            .ct-main {
+                #txt-temperature {
+                    display: inline-block;
+                    font-size: 86px;
+                    color: #fff;
+                    height: 86px;
+                    line-height: 86px
+                }
+
+                #txt-name {
+                    display: inline-block;
+                    font-size: 28px;
+                    color: #fff;
+                    line-height: 45px;
+                    height: 45px;
+                    margin-right: 24px
+                }
+
+                .air-level {
+                    display: inline-block;
+
+                    .info-kq {
+                        width: 60px;
+                        height: 18px;
+                        display: inline-block;
+                        line-height: 18px;
+                        margin-right: 20px;
+                        background-color: #a3d765;
+                        border-radius: 20px;
+                        color: #fff;
+                        font-size: 14px;
+                        padding-left: 20px;
+                    }
+
+                    .info-yj {
+                        display: inline-block;
+                        background-color: #86c5f7;
+                        padding: 3px 12px;
+                        border-radius: 18px;
+                        color: #fff;
+                        font-size: 14px;
+                    }
+                }
+
+            }
+        }
+
+    }
+
+    .ct-desc {
+        width: 500px;
+        display: flex;
+        margin-top: 20px;
+        justify-content: space-between;
+
+        .item {
+            .iconfont {
+                font-size: 20px;
+                margin-right: 10px;
+                color: #cbdbfc;
+            }
+
+            span {
+                color: #fff;
+                font-size: 18px;
+            }
+        }
+    }
+
+    .tips {
+        margin-top: 20px;
+        font-size: 20px;
+        color: #fff;
+        display: inline-block;
+
+    }
+
+    #qiehuan {
+        display: inline-block;
+        margin-left: 10px;
+        margin-top: 20px;
+    }
+
+    .tips::before {
+        content: '';
+        float: left;
+        height: 11px;
+        width: 11px;
+        margin-right: 13px;
+        background: #fff;
+        border-radius: 50%;
+        margin-top: 5px;
+    }
+
+    .situation {
+        display: inline-block;
+        margin-left: 500px;
+    }
+
+    .container {
+        background-color: #fff;
+        height: 190px;
+        margin-top: 200px;
+        padding-top: 10px;
+        border-radius: 18px;
+        overflow: hidden;
+        position: relative;
+
+        .title {
+            font-size: 16px;
+            padding: 0 30px;
+            display: inline-block;
+            margin: 10px 0;
+        }
+
+        .title::before {
+            content: '';
+            float: left;
+            height: 7px;
+            width: 7px;
+            margin-right: 13px;
+            background: #000;
+            border-radius: 50%;
+            margin-top: 5px;
+        }
+
+        .btn {
+            margin: 10px 0;
+            margin-right: 30px;
+            float: right;
+
+            img {
+                display: inline-block;
+            }
+        }
+
+        .foresee {
+            width: 3000px;
+            // padding: 0 20px;
+            position: absolute;
+            left: 0;
+            top: 50px;
+            margin: 15px 0;
+            justify-content: space-between;
+
+            .items {
+                width: 95px;
+                text-align: center;
+                display: inline-block;
+
+                .time {
+                    font-size: 14px;
+                    color: #8a9baf;
+                    margin-bottom: 24px;
+                }
+
+                img {
+                    width: 30px;
+                    height: 30px;
+                    margin-left: 30px;
+                    margin-bottom: 18px;
+                }
+
+                .temp {
+                    font-size: 18px;
+                    margin-top: 10px;
+                    margin-left: 5px;
+                    color: #384c78;
+                }
+            }
+        }
+
+    }
+
+    .weather-change {
+        display: flex;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        // overflow: hidden;
+        padding-left: 10px;
+
+        .seven-days {
+            .title {
+                margin-left: 20px;
+            }
+        }
+
+        .seven-days {
+            float: left;
+            width: 840px;
+            height: 492px;
+            padding: 20px 0 0;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 14px 0 rgba(0, 0, 0, .08);
+
+            .title {
+                font-size: 18px;
+                color: #344665;
+                line-height: 25px;
+                height: 25px;
+                margin-bottom: 18px;
+                margin-left: 30px;
+            }
+
+            .title::before {
+                content: "";
+                float: left;
+                width: 7px;
+                height: 7px;
+                border-radius: 50%;
+                background-color: #000;
+                margin-right: 10px;
+                overflow: hidden;
+                margin-top: 8px;
+            }
+
+            #ct-weather {
+                position: relative;
+
+                .weather-list {
+                    display: flex;
+                    justify-content: space-between;
+
+                    .weather-list-item {
+                        text-align: center;
+                        width: 92.5px;
+                        padding: 11px 0 25px;
+
+                        .day {
+                            font-size: 14px;
+                            margin-bottom: 12px;
+                            height: 14px;
+                            line-height: 14px;
+                            color: #384c78;
+                        }
+
+                        .date {
+                            font-size: 12px;
+                            color: #384c78;
+                            margin-bottom: 30px;
+                            height: 12px;
+                            line-height: 12px;
+                        }
+
+                        .ct-daytime {
+                            margin-bottom: 175px;
+
+                            .weather-status {
+                                font-size: 14px;
+                                color: #384c78;
+                                line-height: 14px;
+                                height: 14px;
+                                margin-bottom: 20px;
+                            }
+
+                            img {
+                                display: inline-block;
+                                height: 30px;
+                                width: 30px;
+                            }
+                        }
+
+                        .ct-night {
+                            img {
+                                display: inline-block;
+                                height: 30px;
+                                width: 30px;
+                                margin-bottom: 20px;
+                            }
+
+                            .weather-status {
+                                font-size: 14px;
+                                color: #384c78;
+                                line-height: 14px;
+                                height: 14px;
+                                margin-bottom: 20px;
+                            }
+
+                            .wind {
+                                font-size: 12px;
+                                color: #8a9baf;
+                                line-height: 12px;
+                                height: 12px
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+
+        .rigth-tips {
+            width: 500px;
+            height: 550px;
+            margin-right: 30px;
+            margin-left: 30px;
+            position: relative;
+            overflow: hidden;
+
+            .tips-title {
+                margin-left: 20px;
+                display: inline-block;
+            }
+
+            .tips-title::before {
+                content: '';
+                float: left;
+                height: 7px;
+                width: 7px;
+                margin-right: 13px;
+                background: #000;
+                border-radius: 50%;
+                margin-top: 5px;
+            }
+
+            .but {
+                float: right;
+                margin-bottom: 10px;
+                display: inline-block;
+
+                img {
+                    // margin-left: 10px;
+                    display: inline-block;
+                }
+            }
+
+            .item-all {
+                margin-top: 15px;
+                width: 1000px;
+                display: flex;
+                flex-wrap: wrap;
+                position: absolute;
+                left: 0px;
+                top: 30px;
+
+                .tips-item {
+                    height: 140px;
+                    width: 190px;
+                    background: #fff;
+                    box-shadow: 0 0 14px 0 rgb(0 0 0 / 8%);
+                    border-radius: 10px;
+                    float: left;
+                    text-align: center;
+                    overflow: hidden;
+                    margin-bottom: 20px;
+                    position: relative;
+                    margin-right: 20px;
+
+                    .inner1 {
+                        position: absolute;
+                        top: 30px;
+                        left: 0px;
+                        height: 102px;
+                        width: 100%;
+                        padding-top: 10px;
+
+                        .tips-name {
+                            font-size: 16px;
+                            color: #384c78;
+                            line-height: 22px;
+                            text-align: center;
+                        }
+                    }
+
+                    .inner2 {
+                        padding: 0 10px;
+                        position: absolute;
+                        top: 150px;
+                        left: 10px;
+                    }
+
+                    .iconfont {
+                        font-size: 34px;
+                        display: block;
+                        margin: 0 auto 12px;
+                    }
+
+                    .icon-yifu {
+                        color: #e1a4c4;
+                    }
+
+                    .icon-yusan {
+                        color: #c7ade3;
+                    }
+
+                    .icon-yaowan {
+                        color: #83c886;
+                    }
+
+                    .icon-xiche {
+                        color: #b5e6a8;
+                    }
+
+                    .icon-yundonghuwaileimu {
+                        color: #e6d99d;
+                    }
+
+                    .icon-taiyang-copy {
+                        color: #e0b7ac;
+                    }
+
+
+                }
+            }
+        }
+
+    }
+
+    .footer {
+        width: 100%;
+        background-color: #3a4570;
+        height: 200px;
+        // position: relative;
+        // bottom: 0;
+        margin-top: 30px;
+
+        .inner {
+            display: flex;
+            justify-content: center;
+            padding: 50px 0;
+
+            img {
+                margin: 0 30px;
+            }
+
+        }
+    }
+
+
+
+}

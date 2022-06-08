@@ -1,0 +1,37 @@
+{
+  "id": "3448618",
+  "name": "txtq",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "398273",
+      "name": "湿度",
+      "font_class": "shidu",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    },
+    {
+      "icon_id": "5881137",
+      "name": "车辆",
+      "font_class": "cheliang",
+      "unicode": "e629",
+      "unicode_decimal": 58921
+    },
+    {
+      "icon_id": "25716509",
+      "name": "风向",
+      "font_class": "fengxiang",
+      "unicode": "ea32",
+      "unicode_decimal": 59954
+    },
+    {
+      "icon_id": "28606936",
+      "name": "气压",
+      "font_class": "qiya",
+      "unicode": "e6c0",
+      "unicode_decimal": 59072
+    }
+  ]
+}

@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>露露天气</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="shortcut icon" href="//mat1.gtimg.com/www/icon/favicon2.ico">
+    <link rel="stylesheet" href="./font_desc/iconfont.css">
+    <link rel="stylesheet" href="./font_tips2/iconfont.css">
+    <link rel="stylesheet" href="./font_tips/iconfont.css">
+    <style>
+        #container {
+            width: 800px;
+            height: 400px;
+            margin-top: 100px;
+            position: absolute;
+            left: -35px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <img src="./imgs/00night.png" alt=""> -->
+    <div class="tengxun">
+        <nav class="nav wrapper">
+            <div class="logo">
+                <img src="./imgs/1630660727563.png" alt="logo">
+            </div>
+            <div class="header-right">
+                <div class="look">无障碍浏览</div>
+                <div class="header-location">
+                    <img src="./imgs/1630660669191.png" alt="">
+                    <span id="provinceCity"> </span>
+                </div>
+                <div class="guanzhu">[添加关注]</div>
+                <div class="search">
+                    <input type="text" placeholder="搜索市、区、县等">
+                    <div id="ct-hot-city">
+                        <span class="tit" id="tit-cur" style="margin-bottom: 12px; display: block;">当前定位</span>
+                        <span id="cur-location" class="match" data-province="河南省" data-city="郑州市" data-district=""
+                            style="display: block;">郑州市</span>
+                        <div id="ct-history">
+                            <p class="tit">历史记录</p>
+                            <a id="btn-clean">清除</a>
+                            <ul class="ls-city" id="ls-history">
+                                <li class="ls-opts" data-province="上海" data-city="上海"><span>上海</span></li>
+                                <li class="ls-opts" data-province="河南省" data-city="郑州市"><span>郑州市</span></li>
+                            </ul>
+                        </div>
+                        <p class="tit">热门城市</p>
+                        <ul id="ls-hot-city" class="ls-city">
+                            <li class="opts" data-province="北京" data-city="北京"><span>北京</span></li>
+                            <li class="opts" data-province="上海" data-city="上海"><span>上海</span></li>
+                            <li class="opts" data-province="广东" data-city="广州"><span>广州</span></li>
+                            <li class="opts" data-province="广东" data-city="深圳"><span>深圳</span></li>
+                            <li class="opts" data-province="天津" data-city="天津"><span>天津</span></li>
+                            <li class="opts" data-province="陕西" data-city="西安"><span>西安</span></li>
+                            <li class="opts" data-province="湖北" data-city="武汉"><span>武汉</span></li>
+                            <li class="opts" data-province="四川" data-city="成都"><span>成都</span></li>
+                            <li class="opts" data-province="河北" data-city="石家庄"><span>石家庄</span></li>
+                            <li class="opts" data-province="河南" data-city="郑州"><span>郑州</span></li>
+                            <li class="opts" data-province="黑龙江" data-city="哈尔滨"><span>哈尔滨</span></li>
+                            <li class="opts" data-province="山西" data-city="太原"><span>太原</span></li>
+                            <li class="opts" data-province="新疆" data-city="乌鲁木齐"><span>乌鲁木齐</span></li>
+                            <li class="opts" data-province="山东" data-city="济南"><span>济南</span></li>
+                            <li class="opts" data-province="福建" data-city="福州"><span>福州</span></li>
+                            <li class="opts" data-province="西藏" data-city="日喀则"><span>日喀则</span></li>
+                            <li class="opts" data-province="福建" data-city="厦门"><span>厦门</span></li>
+                            <li class="opts" data-province="山东" data-city="青岛"><span>青岛</span></li>
+                            <li class="opts" data-province="江苏" data-city="扬州"><span>扬州</span></li>
+                            <li class="opts" data-province="安徽" data-city="合肥"><span>合肥</span></li>
+                            <li class="opts" data-province="重庆" data-city="重庆"><span>重庆</span></li>
+                            <li class="opts" data-province="江西" data-city="南昌"><span>南昌</span></li>
+                            <li class="opts" data-province="河北" data-city="唐山"><span>唐山</span></li>
+                            <li class="opts" data-province="浙江" data-city="杭州"><span>杭州</span></li>
+                            <li class="opts" data-province="河北" data-city="邢台"><span>邢台</span></li>
+                            <li class="opts" data-province="辽宁" data-city="沈阳"><span>沈阳</span></li>
+                            <li class="opts" data-province="河北" data-city="邯郸"><span>邯郸</span></li>
+                            <li class="opts" data-province="云南" data-city="昆明"><span>昆明</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+        <div class="ct-current wrapper">
+            <div class="detail">
+                <p class="ct-time">中央气象台12:50发布</p>
+                <div class="ct-main">
+                    <p id="txt-temperature">27°</p>
+                    <p id="txt-name">多云</p>
+                    <div class="air-level">
+                        <p>
+                            <p class="info-kq">51 良</p>
+                            <p class="info-yj">强对流预警</p>
+                        </p>
+                    </div>
+                </div>
+                <div class="ct-desc">
+                    <div class="item">
+                        <i class="iconfont icon-fengxiang"></i>
+                        <span class="windDirection">西北风 2级</span>
+                    </div>
+                    <div class="item">
+                        <i class="iconfont icon-shidu"></i>
+                        <span class="shidu">湿度 62%</span>
+                    </div>
+                    <div class="item">
+                        <i class="iconfont icon-qiya"></i>
+                        <span class="qiya"> 气压 990hPa</span>
+                    </div>
+                    <div class="item">
+                        <i class="iconfont icon-cheliang"></i>
+                        <span class="xianxing">不限行</span>
+                    </div>
+                </div>
+                <div class="tips">
+                    光芒透过云缝，洒向大地~
+                </div>
+                <img src="./imgs/切换.png" alt="" id="qiehuan">
+            </div>
+            <div class="situation">
+                <img src="./imgs/01.png" alt="">
+            </div>
+        </div>
+        <div class="container wrapper">
+            <p class="title">逐小时预报</p>
+            <div class="btn">
+                <img src="./imgs/houtui.png" class="houtui" alt="后退">
+                <img src="./imgs/qianjin.png" class="qianjin" alt="后退">
+            </div>
+
+            <div class="foresee">
+                <div class="items">
+                    <p class="time">14:00</p>
+                    <img src="./imgs/01 (1)多云.png" alt="">
+                    <p class="temp">31°</p>
+                </div>
+                <div class="items">
+                    <p class="time">14:00</p>
+                    <img src="./imgs/01 (1)多云.png" alt="">
+                    <p class="temp">31°</p>
+                </div>
+                <div class="items">
+                    <p class="time">14:00</p>
+                    <img src="./imgs/01 (1)多云.png" alt="">
+                    <p class="temp">31°</p>
+                </div>
+                <div class="items">
+                    <p class="time">14:00</p>
+                    <img src="./imgs/01 (1)多云.png" alt="">
+                    <p class="temp">31°</p>
+                </div>
+                <div class="items">
+                    <p class="time">14:00</p>
+                    <img src="./imgs/01 (1)多云.png" alt="">
+                    <p class="temp">31°</p>
+                </div>
+                <div class="items">
+                    <p class="time">14:00</p>
+                    <img src="./imgs/01 (1)多云.png" alt="">
+                    <p class="temp">31°</p>
+                </div>
+                <div class="items">
+                    <p class="time">14:00</p>
+                    <img src="./imgs/01 (1)多云.png" alt="">
+                    <p class="temp">31°</p>
+                </div>
+                <div class="items">
+                    <p class="time">14:00</p>
+                    <img src="./imgs/01 (1)多云.png" alt="">
+                    <p class="temp">31°</p>
+                </div>
+                <div class="items">
+                    <p class="time">14:00</p>
+                    <img src="./imgs/01 (1)多云.png" alt="">
+                    <p class="temp">31°</p>
+                </div>
+                <div class="items">
+                    <p class="time">14:00</p>
+                    <img src="./imgs/01 (1)多云.png" alt="">
+                    <p class="temp">31°</p>
+                </div>
+                <div class="items">
+                    <p class="time">14:00</p>
+                    <img src="./imgs/01 (1)多云.png" alt="">
+                    <p class="temp">31°</p>
+                </div>
+                <div class="items">
+                    <p class="time">14:00</p>
+                    <img src="./imgs/01 (1)多云.png" alt="">
+                    <p class="temp">31°</p>
+                </div>
+                <div class="items">
+                    <p class="time">14:00</p>
+                    <img src="./imgs/01 (1)多云.png" alt="">
+                    <p class="temp">31°</p>
+                </div>
+                <div class="items">
+                    <p class="time">14:00</p>
+                    <img src="./imgs/01 (1)多云.png" alt="">
+                    <p class="temp">31°</p>
+                </div>
+                <div class="items">
+                    <p class="time">14:00</p>
+                    <img src="./imgs/01 (1)多云.png" alt="">
+                    <p class="temp">31°</p>
+                </div>
+                <div class="items">
+                    <p class="time">14:00</p>
+                    <img src="./imgs/01 (1)多云.png" alt="">
+                    <p class="temp">31°</p>
+                </div>
+                <div class="items">
+                    <p class="time">14:00</p>
+                    <img src="./imgs/01 (1)多云.png" alt="">
+                    <p class="temp">31°</p>
+                </div>
+                <div class="items">
+                    <p class="time">14:00</p>
+                    <img src="./imgs/01 (1)多云.png" alt="">
+                    <p class="temp">31°</p>
+                </div>
+                <div class="items">
+                    <p class="time">14:00</p>
+                    <img src="./imgs/01 (1)多云.png" alt="">
+                    <p class="temp">31°</p>
+                </div>
+                <div class="items">
+                    <p class="time">14:00</p>
+                    <img src="./imgs/01 (1)多云.png" alt="">
+                    <p class="temp">31°</p>
+                </div>
+                <div class="items">
+                    <p class="time">14:00</p>
+                    <img src="./imgs/01 (1)多云.png" alt="">
+                    <p class="temp">31°</p>
+                </div>
+                <div class="items">
+                    <p class="time">14:00</p>
+                    <img src="./imgs/01 (1)多云.png" alt="">
+                    <p class="temp">31°</p>
+                </div>
+                <div class="items">
+                    <p class="time">14:00</p>
+                    <img src="./imgs/01 (1)多云.png" alt="">
+                    <p class="temp">31°</p>
+                </div>
+                <div class="items">
+                    <p class="time">14:00</p>
+                    <img src="./imgs/01 (1)多云.png" alt="">
+                    <p class="temp">31°</p>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="weather-change wrapper">
+            <div class="seven-days">
+                <p class="title">7日天气预报</p>
+                <div id="ct-weather">
+                    <div id="container"></div>
+                    <ul class="weather-list">
+                        <li class="weather-list-item first">
+                            <p class="day">昨天</p>
+                            <p class="date">06月06号</p>
+                            <div class="ct-daytime">
+                                <p class="weather-status">
+                                    多云
+                                </p>
+                                <img src="./imgs/01 (1)多云.png" alt="多云">
+                            </div>
+                            <div class="ct-night">
+                                <img src="./imgs/01 (1)多云.png" alt="">
+                                <p class="weather-status">
+                                    多云
+                                </p>
+                                <p class="wind">西北风 4级</p>
+                            </div>
+                        </li>
+                        <li class="weather-list-item">
+                            <p class="day">今天</p>
+                            <p class="date">06月06号</p>
+                            <div class="ct-daytime">
+                                <p class="weather-status">
+                                    多云
+                                </p>
+                                <img src="./imgs/01 (1)多云.png" alt="多云">
+                            </div>
+                            <div class="ct-night">
+                                <img src="./imgs/01 (1)多云.png" alt="">
+                                <p class="weather-status">
+                                    多云
+                                </p>
+                                <p class="wind">西北风 4级</p>
+                            </div>
+                        </li>
+                        <li class="weather-list-item">
+                            <p class="day">明天</p>
+                            <p class="date">06月06号</p>
+                            <div class="ct-daytime">
+                                <p class="weather-status">
+                                    多云
+                                </p>
+                                <img src="./imgs/01 (1)多云.png" alt="多云">
+                            </div>
+                            <div class="ct-night">
+                                <img src="./imgs/01 (1)多云.png" alt="">
+                                <p class="weather-status">
+                                    多云
+                                </p>
+                                <p class="wind">西北风 4级</p>
+                            </div>
+                        </li>
+                        <li class="weather-list-item">
+                            <p class="day">后天</p>
+                            <p class="date">06月06号</p>
+                            <div class="ct-daytime">
+                                <p class="weather-status">
+                                    多云
+                                </p>
+                                <img src="./imgs/01 (1)多云.png" alt="多云">
+                            </div>
+                            <div class="ct-night">
+                                <img src="./imgs/01 (1)多云.png" alt="">
+                                <p class="weather-status">
+                                    多云
+                                </p>
+                                <p class="wind">西北风 4级</p>
+                            </div>
+                        </li>
+                        <li class="weather-list-item">
+                            <p class="day">周四</p>
+                            <p class="date">06月06号</p>
+                            <div class="ct-daytime">
+                                <p class="weather-status">
+                                    多云
+                                </p>
+                                <img src="./imgs/01 (1)多云.png" alt="多云">
+                            </div>
+                            <div class="ct-night">
+                                <img src="./imgs/01 (1)多云.png" alt="">
+                                <p class="weather-status">
+                                    多云
+                                </p>
+                                <p class="wind">西北风 4级</p>
+                            </div>
+                        </li>
+                        <li class="weather-list-item">
+                            <p class="day">周五</p>
+                            <p class="date">06月06号</p>
+                            <div class="ct-daytime">
+                                <p class="weather-status">
+                                    多云
+                                </p>
+                                <img src="./imgs/01 (1)多云.png" alt="多云">
+                            </div>
+                            <div class="ct-night">
+                                <img src="./imgs/01 (1)多云.png" alt="">
+                                <p class="weather-status">
+                                    多云
+                                </p>
+                                <p class="wind">西北风 4级</p>
+                            </div>
+                        </li>
+                        <li class="weather-list-item">
+                            <p class="day">周六</p>
+                            <p class="date">06月06号</p>
+                            <div class="ct-daytime">
+                                <p class="weather-status">
+                                    多云
+                                </p>
+                                <img src="./imgs/01 (1)多云.png" alt="多云">
+                            </div>
+                            <div class="ct-night">
+                                <img src="./imgs/01 (1)多云.png" alt="">
+                                <p class="weather-status">
+                                    多云
+                                </p>
+                                <p class="wind">西北风 4级</p>
+                            </div>
+                        </li>
+                        <li class="weather-list-item">
+                            <p class="day">周日</p>
+                            <p class="date">06月06号</p>
+                            <div class="ct-daytime">
+                                <p class="weather-status">
+                                    多云
+                                </p>
+                                <img src="./imgs/01 (1)多云.png" alt="多云">
+                            </div>
+                            <div class="ct-night">
+                                <img src="./imgs/01 (1)多云.png" alt="">
+                                <p class="weather-status">
+                                    多云
+                                </p>
+                                <p class="wind">西北风 4级</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="rigth-tips">
+                <p class="tips-title">
+                    生活指数
+                </p>
+                <div class="but">
+                    <img id="prev" src="./imgs/houtui.png" alt="">
+                    <img id="next" src="./imgs/qianjin.png" alt="">
+                </div>
+                <div class="item-all">
+                    <div class="tips-item">
+                        <div class="inner1">
+                            <i class="iconfont icon-yifu"></i>
+                            <p class="tips-name">穿衣 炎热</p>
+                        </div>
+                        <div class="inner2">
+                            <p class="tips-detail">天气炎热，建议着短衫、短裙、短裤、薄型T恤衫等清凉夏季服装。</p>
+                        </div>
+                    </div>
+                    <div class="tips-item">
+                        <div class="inner1">
+                            <i class="iconfont icon-yusan"></i>
+                            <p class="tips-name">雨伞 带伞</p>
+                        </div>
+                        <div class="inner2">
+                            <p class="tips-detail">天气炎热，建议着短衫、短裙、短裤、薄型T恤衫等清凉夏季服装。</p>
+                        </div>
+                    </div>
+                    <div class="tips-item">
+                        <div class="inner1">
+                            <i class="iconfont icon-haiyangyuyuye"></i>
+                            <p class="tips-name">雨伞 带伞</p>
+                        </div>
+                        <div class="inner2">
+                            <p class="tips-detail">天气炎热，建议着短衫、短裙、短裤、薄型T恤衫等清凉夏季服装。</p>
+                        </div>
+                    </div>
+                    <div class="tips-item">
+                        <div class="inner1">
+                            <i class="iconfont icon-hanglixiang"></i>
+                            <p class="tips-name">雨伞 带伞</p>
+                        </div>
+                        <div class="inner2">
+                            <p class="tips-detail">天气炎热，建议着短衫、短裙、短裤、薄型T恤衫等清凉夏季服装。</p>
+                        </div>
+                    </div>
+                    <div class="tips-item">
+                        <div class="inner1">
+                            <i class="iconfont icon-yaowan"></i>
+                            <p class="tips-name">雨伞 带伞</p>
+                        </div>
+                        <div class="inner2">
+                            <p class="tips-detail">天气炎热，建议着短衫、短裙、短裤、薄型T恤衫等清凉夏季服装。</p>
+                        </div>
+                    </div>
+                    <div class="tips-item">
+                        <div class="inner1">
+                            <i class="iconfont icon-xiche"></i>
+                            <p class="tips-name">雨伞 带伞</p>
+                        </div>
+                        <div class="inner2">
+                            <p class="tips-detail">天气炎热，建议着短衫、短裙、短裤、薄型T恤衫等清凉夏季服装。</p>
+                        </div>
+                    </div>
+                    <div class="tips-item">
+                        <div class="inner1">
+                            <i class="iconfont icon-a-jiaotongdenghonglvdengjiaotongliuliang"></i>
+                            <p class="tips-name">穿衣 炎热</p>
+                        </div>
+                        <div class="inner2">
+                            <p class="tips-detail">天气炎热，建议着短衫、短裙、短裤、薄型T恤衫等清凉夏季服装。</p>
+                        </div>
+                    </div>
+                    <div class="tips-item">
+                        <div class="inner1">
+                            <i class="iconfont icon-kongqizhiyiban"></i>
+                            <p class="tips-name">雨伞 带伞</p>
+                        </div>
+                        <div class="inner2">
+                            <p class="tips-detail">天气炎热，建议着短衫、短裙、短裤、薄型T恤衫等清凉夏季服装。</p>
+                        </div>
+                    </div>
+                    <div class="tips-item">
+                        <div class="inner1">
+                            <i class="iconfont icon-yundonghuwaileimu"></i>
+                            <p class="tips-name">雨伞 带伞</p>
+                        </div>
+                        <div class="inner2">
+                            <p class="tips-detail">天气炎热，建议着短衫、短裙、短裤、薄型T恤衫等清凉夏季服装。</p>
+                        </div>
+                    </div>
+                    <div class="tips-item">
+                        <div class="inner1">
+                            <i class="iconfont icon-taiyang-copy"></i>
+                            <p class="tips-name">雨伞 带伞</p>
+                        </div>
+                        <div class="inner2">
+                            <p class="tips-detail">天气炎热，建议着短衫、短裙、短裤、薄型T恤衫等清凉夏季服装。</p>
+                        </div>
+                    </div>
+                    <div class="tips-item">
+                        <div class="inner1">
+                            <i class="iconfont icon-xiaolian"></i>
+                            <p class="tips-name">雨伞 带伞</p>
+                        </div>
+                        <div class="inner2">
+                            <p class="tips-detail">天气炎热，建议着短衫、短裙、短裤、薄型T恤衫等清凉夏季服装。</p>
+                        </div>
+                    </div>
+                    <div class="tips-item">
+                        <div class="inner1">
+                            <i class="iconfont icon-hangeryijia"></i>
+                            <p class="tips-name">雨伞 带伞</p>
+                        </div>
+                        <div class="inner2">
+                            <p class="tips-detail">天气炎热，建议着短衫、短裙、短裤、薄型T恤衫等清凉夏季服装。</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="inner wrapper">
+                <img src="./imgs/111.png" alt="">
+                <img src="./imgs/222.png" alt="">
+                <img src="./imgs/333.png" alt="">
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="./js/tool.js"></script>
+<script src="./js/jquery.js"></script>
+<script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.min.js"></script>
+<script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+        renderer: 'canvas',
+        useDirtyRect: false
+    });
+    var app = {};
+
+    var option;
+    let wenduMin = [];
+    let wenduMax = [];
+    let cityName = '上海'
+    option = {
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {},
+        toolbox: {
+            show: false,
+            feature: {
+                dataZoom: {
+                    yAxisIndex: 'none'
+                },
+                dataView: {
+                    readOnly: false
+                },
+                magicType: {
+                    type: ['line', 'bar']
+                },
+                restore: {},
+                saveAsImage: {}
+            }
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+
+            show: false
+        },
+        yAxis: {
+            type: 'value',
+            axisLabel: {
+                formatter: '{value} °C'
+            },
+            show: false
+        },
+        series: [{
+                type: 'line',
+                data: wenduMax,
+                smooth: true,
+                lineStyle: { //修改折线颜色
+                    color: "#fcc370"
+                },
+                itemStyle: { //修改圆点颜色
+                    normal: {
+                        color: '#fcc370'
+                    }
+                },
+                label: { //显示折点数值
+                    show: true,
+                    position: 'top',
+                    textStyle: {
+                        fontSize: 16
+                    },
+                    formatter: function (params) { //显示每个折点单位
+                        return (params.value) + "°";
+                    }
+                },
+                symbol: 'circle', //设为实心圆
+                symbolSize: 6, //设置折点圆的大小
+            },
+            {
+                type: 'line',
+                data: wenduMin,
+                label: {
+                    show: true,
+                    position: 'bottom',
+                    textStyle: {
+                        fontSize: 16
+                    },
+                    formatter: function (params) {
+                        return (params.value) + "°";
+                    }
+                },
+                lineStyle: {
+                    color: "#9cd0fa"
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#9cd0fa'
+                    }
+                },
+                symbol: 'circle',
+                symbolSize: 6,
+                smooth: true,
+                markLine: {
+                    data: [
+                        [{
+                                symbol: 'none',
+                                x: '90%',
+                            },
+                            {
+                                symbol: 'circle',
+                                label: {
+                                    position: 'start',
+                                    formatter: 'Max'
+                                },
+                            }
+                        ]
+                    ]
+                }
+            }
+        ]
+    };
+
+    if (option && typeof option === 'object') {
+        myChart.setOption(option);
+    }
+    window.addEventListener('resize', myChart.resize);
+
+
+    //获取当前定位
+    $.get(
+        "https://restapi.amap.com/v3/ip", {
+            key: "1d565483e5506039717a1fb60a9f022d"
+        },
+        function (data) {
+            $('#provinceCity').text(data.province + data.city)
+            getWeather(data.province, data.city)
+        }
+    )
+
+    //根据定位查询天气
+    function getWeather(province, city) {
+        $.ajax("https://wis.qq.com/weather/common", {
+            dataType: "jsonp",
+            data: {
+                source: "pc",
+                weather_type: "observe|forecast_1h|forecast_24h|index|alarm|limit|tips|rise|air",
+                province: province,
+                city: city,
+            },
+            success: function (data) {
+                fun(data)
+            }
+        })
+    }
+
+
+    //回调函数
+    function fun(data) {
+
+        renderIndexData(data)
+        tipsTab(data);
+        renderSevenImgs(data);
+        renderSevenTime(data);
+        renderHourInner(data);
+
+        for (let i = 0; i < 8; i++) {
+            wenduMin[i] = data.data.forecast_24h[i].min_degree
+            wenduMax[i] = data.data.forecast_24h[i].max_degree
+        }
+        myChart.setOption(option);
+    }
+
+
+    //右侧天气穿衣提示切换函数
+    function tipsTab(data) {
+
+        let tipsItems = document.querySelectorAll('.item-all .tips-item')
+        let pagesItemContent = document.querySelectorAll('.tips-name')
+        let pagesItemDetail = document.querySelectorAll('.tips-detail')
+        let liveIndex = data.data.index
+        // 穿衣
+        pagesItemContent[0].innerText = liveIndex.clothes.name + ' ' + liveIndex.clothes.info
+        pagesItemDetail[0].innerHTML = liveIndex.clothes.detail
+        // 雨伞
+        pagesItemContent[1].innerText = liveIndex.umbrella.name + ' ' + liveIndex.umbrella.info
+        pagesItemDetail[1].innerHTML = liveIndex.umbrella.detail
+        // 钓鱼
+        pagesItemContent[2].innerText = liveIndex.fish.name + ' ' + liveIndex.fish.info
+        pagesItemDetail[2].innerHTML = liveIndex.fish.detail
+        // 旅游
+        pagesItemContent[3].innerText = liveIndex.tourism.name + ' ' + liveIndex.tourism.info
+        pagesItemDetail[3].innerHTML = liveIndex.tourism.detail
+        // 感冒
+        pagesItemContent[4].innerText = liveIndex.cold.name + ' ' + liveIndex.cold.info
+        pagesItemDetail[4].innerHTML = liveIndex.cold.detail
+        // 洗车
+        pagesItemContent[5].innerText = liveIndex.carwash.name + ' ' + liveIndex.carwash.info
+        pagesItemDetail[5].innerHTML = liveIndex.carwash.detail
+        // 交通
+        pagesItemContent[6].innerText = liveIndex.traffic.name + ' ' + liveIndex.traffic.info
+        pagesItemDetail[6].innerHTML = liveIndex.traffic.detail
+        // 空气污染扩散条件
+        pagesItemContent[7].innerText = liveIndex.diffusion.name + ' ' + liveIndex.diffusion.info
+        pagesItemDetail[7].innerHTML = liveIndex.diffusion.detail
+        // 运动
+        pagesItemContent[8].innerText = liveIndex.sports.name + ' ' + liveIndex.sports.info
+        pagesItemDetail[8].innerHTML = liveIndex.sports.detail
+        // 防晒
+        pagesItemContent[9].innerText = liveIndex.sunscreen.name + ' ' + liveIndex.sunscreen.info
+        pagesItemDetail[9].innerHTML = liveIndex.sunscreen.detail
+        // 舒适度
+        pagesItemContent[10].innerText = liveIndex.comfort.name + ' ' + liveIndex.comfort.info
+        pagesItemDetail[10].innerHTML = liveIndex.comfort.detail
+        // 晾晒
+        pagesItemContent[11].innerText = liveIndex.drying.name + ' ' + liveIndex.drying.info
+        pagesItemDetail[11].innerHTML = liveIndex.drying.detail
+        $('.item-all .tips-item').mouseenter(
+            function () {
+                $(this).find('.inner1').animate({
+                    top: '-100'
+                })
+                $(this).find('.inner2').animate({
+                    top: '30'
+                })
+            }
+        );
+        $('.item-all .tips-item').mouseleave(
+            function () {
+                $(this).find('.inner1').animate({
+                    top: '30'
+                }, 500)
+                $(this).find('.inner2').animate({
+                    top: '150'
+                }, 500)
+
+                $(this).find('.inner1').stop().animate({
+                    top: '30'
+                }, 600);
+                $(this).find('.inner2').stop().animate({
+                    top: '150'
+                }, 600);
+            }
+
+        );
+        $('#next').click(function () {
+            $('.item-all').animate({
+                left: '-420'
+            }, 500)
+        })
+        $('#prev').click(function () {
+            $('.item-all').animate({
+                left: '0'
+            })
+        })
+
+    }
+
+    //获得焦点
+    $('input').focus(function () {
+        $('#ct-hot-city').css('display', 'block')
+        $('#ls-hot-city>.opts>span').click(function () {
+            console.log(this.innerText);
+            $('input').val(this.innerText);
+            $('#ct-hot-city').css('display', 'none')
+            cityName = this.innerText
+            console.log(11111111, cityName);
+            // console.log(newData);
+            $.get('https://restapi.amap.com/v3/geocode/geo', {
+                key: '1d565483e5506039717a1fb60a9f022d',
+                address: cityName
+            }, function (newData) {
+                console.log('$$$', newData.geocodes[0].province, newData.geocodes[0].city);
+                $('#provinceCity').text(newData.geocodes[0].formatted_address)
+                getWeather(newData.geocodes[0].province, newData.geocodes[0].city)
+            })
+        })
+    })
+    // //失去焦点
+    // $('input').blur(function () {
+    //     $('#ct-hot-city').css('display', 'none')
+    // })
+    //渲染主页温度和其他数据
+    function renderIndexData(data) {
+        $('#txt-temperature').text(data.data.observe.degree + '°');
+        $('#txt-name').text(data.data.observe.weather);
+        console.log(data.data);
+        $('.windDirection').text();
+        $('.shidu').text('湿度' + data.data.observe.humidity + '%')
+        $('.qiya').text('气压' + data.data.observe.pressure + 'hPa')
+        $('.xianxing').text(data.data.limit.tail_number);
+        // 风向
+        let wind = data.data.observe.wind_direction
+        let windPower = data.data.observe.wind_power
+        if (wind == 0) {
+            $('.windDirection').text(`无持续风向`);
+        } else if (wind == 1) {
+            $('.windDirection').text(`东北风  ${windPower}级`);
+        } else if (wind == 2) {
+            $('.windDirection').text(`东风  ${windPower}级`);
+        } else if (wind == 3) {
+            $('.windDirection').text(`东南风  ${windPower}级`);
+        } else if (wind == 4) {
+            $('.windDirection').text(`南风  ${windPower}级`);
+        } else if (wind == 5) {
+            $('.windDirection').text(`西南风  ${windPower}级`);
+        } else if (wind == 6) {
+            $('.windDirection').text(`西风  ${windPower}级`);
+        } else if (wind == 7) {
+            $('.windDirection').text(`西北风  ${windPower}级`);
+        } else if (wind == 8) {
+            $('.windDirection').text(`北风  ${windPower}级`);
+        } else if (wind == 9) {
+            $('.windDirection').text(`旋转风  ${windPower}级`);
+        }
+
+        let str = data.data.observe.update_time;
+        let strNew = str.substring(8);
+        let str1 = strNew.substring(0, 2);
+        let str2 = strNew.substring(2, 4)
+        let timeText = str1 + ':' + str2;
+        $('.ct-time').text('中央气象台' + timeText + '发布');
+        // console.log(111,$('#qiehuan').prev());
+        $('#qiehuan').prev().text(data.data.tips.observe[0])
+        $('#qiehuan').click(function () {
+            if (this.previousElementSibling.innerHTML == data.data.tips.observe[0]) {
+                this.previousElementSibling.innerHTML = data.data.tips.observe[1]
+            } else {
+                this.previousElementSibling.innerHTML = data.data.tips.observe[0]
+            }
+        })
+
+
+    }
+
+    //渲染七天温度变化的时间
+    function renderSevenTime(data) {
+        $('.weather-list-item>.date').each(function (i, item) {
+            let Time = data.data.forecast_24h[i].time
+            let TimeArr = Time.split('-');
+            let TimeArr1 = TimeArr.splice(1, 2)
+            let text = TimeArr1[0] + '月' + TimeArr1[1] + '号'
+            item.innerHTML = text;
+        })
+        $('.weather-list-item>.ct-night>.wind').each(function (i, item) {
+            item.innerHTML = data.data.forecast_24h[i].night_wind_direction + ' ' + data.data.forecast_24h[i]
+                .night_wind_power + '级'
+        })
+        // incomeDetail(data.data.forecast_24h.time)
+    }
+
+    // 封装转换星期
+    function incomeDetail(date) {
+        let dateStr = date.substring(0, 4) + "/" + date.substring(5, 7) + "/" + date.substring(8, 10);
+        return `周${"日一二三四五六".charAt(new Date(dateStr).getDay())}`
+    }
+    //渲染24小时温度变化模块
+    function renderHourInner(data) {
+        $('.container>.foresee>.items>.time').each(function (i, item) {
+            // console.log(this);
+            let str = data.data.forecast_1h[i].update_time;
+            let strNew = str.substring(8);
+            let str1 = strNew.substring(0, 2);
+            let str2 = strNew.substring(2, 4)
+            let timeText = str1 + ':' + str2;
+            let zero = '00' + ':' + 0 + 0;
+            // console.log(zero);
+            if (timeText == zero) {
+                item.innerHTML = '明天';
+            } else {
+                item.innerHTML = timeText;
+            }
+        })
+        $('.container>.foresee>.items>.temp').each(function (i, item) {
+            item.innerHTML = data.data.forecast_1h[i].degree + '°'
+        })
+
+        $('.container>.foresee>.items>img').each(function (i, item) {
+            //    console.log(this);
+            let str = data.data.forecast_1h[i].update_time;
+            let strNew = str.substring(8);
+            let str1 = strNew.substring(0, 2);
+            let str2 = strNew.substring(2, 4)
+            let timeText = str1 + ':' + str2;
+            let zero = '00' + ':' + 0 + 0;
+            let sunrise = data.data.rise[0].sunrise;
+            let sunset = data.data.rise[0].sunset;
+            let sunriseNew = sunrise.substring(0, 2);
+            let sunsetNew = sunset.substring(0, 2);
+            // console.log(zero);
+            // console.log(str1);
+            if (data.data.forecast_1h[i].weather == '多云') {
+                this.src = './imgs/01 (1)多云.png';
+            } else if (data.data.forecast_1h[i].weather == '晴') {
+                this.src = './imgs/00晴.png';
+            } else if (data.data.forecast_1h[i].weather == '阴') {
+                this.src = './imgs/02阴.png';
+            } else if (data.data.forecast_1h[i].weather == '小雨') {
+                this.src = './imgs/07小雨.png';
+            }
+            if (str1 > sunsetNew && str1 < 22) {
+                item.src = './imgs/月亮.png'
+            }
+            if (str1 > 21 || str1 < sunriseNew + 1) {
+                item.src = './imgs/00night.png'
+            }
+
+
+            let sunriseHTML = ` 
+                <div class="items">
+                    <p class="time">${sunrise}</p>
+                    <img src="./imgs/rise.png" alt="">
+                    <p class="temp">日出</p>
+                </div>`
+            let sunsetHTML = ` 
+                <div class="items">
+                    <p class="time">${sunset}</p>
+                    <img src="./imgs/set日落.png" alt="">
+                    <p class="temp">日落</p>
+                </div>`
+
+            if (sunriseNew == str1) {
+                let idx = $(this).index();
+                console.log(idx);
+                $(this).parent().after(sunriseHTML)
+            }
+            if (sunsetNew == str1) {
+                let idx = $(this).index();
+                console.log(this.parentElement);
+                $(this).parent().after(sunsetHTML)
+
+            }
+
+
+        })
+        $('.container>.btn>.qianjin').on('click', function () {
+            //    $('.foresee').left = '-20'+px
+            console.log(111);
+            if ($('.foresee').css('left') <= '0px') {
+                $('.foresee').animate({
+                    left: '-1000'
+                }, 1000);
+            }
+            if ($('.foresee').css('left') <= '-1000px') {
+                $('.foresee').animate({
+                    left: '-1400'
+                }, 1000);
+            }
+        })
+        $('.container>.btn>.qianjin').on('click', function () {
+            if ($('.foresee').css('left') <= '-1000px') {
+                $('.foresee').animate({
+                    left: '-1400'
+                }, 500);
+            }
+        })
+        $('.container>.btn>.qianjin').on('click', function () {
+            if ($('.foresee').css('left') <= '-1400px') {
+                return false
+            }
+        })
+        $('.container>.btn>.houtui').click(function () {
+            console.log(222);
+            if ($('.foresee').css('left') <= '-1400px') {
+                $('.foresee').animate({
+                    left: '-600'
+                }, 2000);
+            } else {
+                $('.foresee').animate({
+                    left: '0'
+                }, 1000);
+            }
+
+        })
+    }
+
+    //动态渲染七天天气图片
+    function renderSevenImgs(data) {
+        $('.weather-list-item>.ct-daytime>.weather-status').each(function (i, item) {
+            item.innerHTML = data.data.forecast_24h[i].day_weather;
+            if (item.innerHTML == '晴') {
+                this.nextElementSibling.src = "./imgs/00晴.png";
+            } else if (item.innerHTML == '阴') {
+                this.nextElementSibling.src = "./imgs/02阴.png";
+            } else if (item.innerHTML == '小雨') {
+                this.nextElementSibling.src = "./imgs/07小雨.png";
+            } else if (item.innerHTML == '多云') {
+                this.nextElementSibling.src = "./imgs/01 (1)多云.png";
+            }
+        })
+        $('.weather-list-item>.ct-night>.weather-status').each(function (i, item) {
+            item.innerHTML = data.data.forecast_24h[i].night_weather;
+            if (item.innerHTML == '晴') {
+                this.previousElementSibling.src = "./imgs/00晴.png";
+            } else if (item.innerHTML == '阴') {
+                this.previousElementSibling.src = "./imgs/02阴.png";
+            } else if (item.innerHTML == '小雨') {
+                this.previousElementSibling.src = "./imgs/07小雨.png";
+            } else if (item.innerHTML == '多云') {
+                this.previousElementSibling.src = "./imgs/01 (1)多云.png";
+            }
+        })
+    }
+</script>
+
+
+</html>
