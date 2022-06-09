@@ -685,6 +685,17 @@
         })
     }
 
+    //获得城市的省份
+    function getCityProvince(cityName) {
+        $.get('https://restapi.amap.com/v3/geocode/geo', {
+            key: '1d565483e5506039717a1fb60a9f022d',
+            address: cityName
+        }, function (newData) {
+            console.log('$$$', newData.geocodes[0].province, newData.geocodes[0].city);
+            $('#provinceCity').text(newData.geocodes[0].formatted_address)
+            getWeather(newData.geocodes[0].province, newData.geocodes[0].city)
+        })
+    }
 
     //回调函数
     function fun(data) {
@@ -694,6 +705,7 @@
         renderSevenImgs(data);
         renderSevenTime(data);
         renderHourInner(data);
+        creatSunTime(data)
 
         for (let i = 0; i < 8; i++) {
             wenduMin[i] = data.data.forecast_24h[i].min_degree
@@ -746,71 +758,24 @@
         // 晾晒
         pagesItemContent[11].innerText = liveIndex.drying.name + ' ' + liveIndex.drying.info
         pagesItemDetail[11].innerHTML = liveIndex.drying.detail
-        $('.item-all .tips-item').mouseenter(
-            function () {
-                $(this).find('.inner1').animate({
-                    top: '-100'
-                })
-                $(this).find('.inner2').animate({
-                    top: '30'
-                })
-            }
-        );
-        $('.item-all .tips-item').mouseleave(
-            function () {
-                $(this).find('.inner1').animate({
-                    top: '30'
-                }, 500)
-                $(this).find('.inner2').animate({
-                    top: '150'
-                }, 500)
 
-                $(this).find('.inner1').stop().animate({
-                    top: '30'
-                }, 600);
-                $(this).find('.inner2').stop().animate({
-                    top: '150'
-                }, 600);
-            }
-
-        );
-        $('#next').click(function () {
-            $('.item-all').animate({
-                left: '-420'
-            }, 500)
-        })
-        $('#prev').click(function () {
-            $('.item-all').animate({
-                left: '0'
-            })
-        })
 
     }
 
     //获得焦点
     $('input').focus(function () {
+        //获得焦点时显示热门城市
         $('#ct-hot-city').css('display', 'block')
+        //点击热门城市重新渲染页面
         $('#ls-hot-city>.opts>span').click(function () {
-            console.log(this.innerText);
+
+            getCityProvince(cityName)
             $('input').val(this.innerText);
             $('#ct-hot-city').css('display', 'none')
             cityName = this.innerText
-            console.log(11111111, cityName);
-            // console.log(newData);
-            $.get('https://restapi.amap.com/v3/geocode/geo', {
-                key: '1d565483e5506039717a1fb60a9f022d',
-                address: cityName
-            }, function (newData) {
-                console.log('$$$', newData.geocodes[0].province, newData.geocodes[0].city);
-                $('#provinceCity').text(newData.geocodes[0].formatted_address)
-                getWeather(newData.geocodes[0].province, newData.geocodes[0].city)
-            })
         })
     })
-    // //失去焦点
-    // $('input').blur(function () {
-    //     $('#ct-hot-city').css('display', 'none')
-    // })
+
     //渲染主页温度和其他数据
     function renderIndexData(data) {
         $('#txt-temperature').text(data.data.observe.degree + '°');
@@ -885,8 +850,10 @@
         let dateStr = date.substring(0, 4) + "/" + date.substring(5, 7) + "/" + date.substring(8, 10);
         return `周${"日一二三四五六".charAt(new Date(dateStr).getDay())}`
     }
-    //渲染24小时温度变化模块
+
+    //渲染24小时温度变化模块时间温度图片
     function renderHourInner(data) {
+        // $(".foresee").text("")
         $('.container>.foresee>.items>.time').each(function (i, item) {
             // console.log(this);
             let str = data.data.forecast_1h[i].update_time;
@@ -936,73 +903,44 @@
                 item.src = './imgs/00night.png'
             }
 
-
-            let sunriseHTML = ` 
-                <div class="items">
+            let sunriseHTML = `
+                <div class="items" id="sunrise">
                     <p class="time">${sunrise}</p>
                     <img src="./imgs/rise.png" alt="">
                     <p class="temp">日出</p>
                 </div>`
-            let sunsetHTML = ` 
-                <div class="items">
+            let sunsetHTML = `
+                <div class="items" id="sunset">
                     <p class="time">${sunset}</p>
                     <img src="./imgs/set日落.png" alt="">
                     <p class="temp">日落</p>
                 </div>`
 
             if (sunriseNew == str1) {
-                let idx = $(this).index();
-                console.log(idx);
+                $('#sunrise').remove()
                 $(this).parent().after(sunriseHTML)
             }
             if (sunsetNew == str1) {
-                let idx = $(this).index();
-                console.log(this.parentElement);
+                $('#sunset').remove()
                 $(this).parent().after(sunsetHTML)
+            }
+        })
 
-            }
+    }
 
+    // 渲染24小时温度变化模块日出日落
+    function creatSunTime(data) {
+        let timeArr = [];
+        for (let i = 0; i < 24; i++) {
+            let sunTime = data.data.forecast_1h[i].update_time
+            let sunTimeNew = sunTime.slice(8, 10);
+            timeArr.push(sunTimeNew);
+        }
+        timeArr.forEach(function (val, i) {
 
+            console.log(timeArr[i]);
         })
-        $('.container>.btn>.qianjin').on('click', function () {
-            //    $('.foresee').left = '-20'+px
-            console.log(111);
-            if ($('.foresee').css('left') <= '0px') {
-                $('.foresee').animate({
-                    left: '-1000'
-                }, 1000);
-            }
-            if ($('.foresee').css('left') <= '-1000px') {
-                $('.foresee').animate({
-                    left: '-1400'
-                }, 1000);
-            }
-        })
-        $('.container>.btn>.qianjin').on('click', function () {
-            if ($('.foresee').css('left') <= '-1000px') {
-                $('.foresee').animate({
-                    left: '-1400'
-                }, 500);
-            }
-        })
-        $('.container>.btn>.qianjin').on('click', function () {
-            if ($('.foresee').css('left') <= '-1400px') {
-                return false
-            }
-        })
-        $('.container>.btn>.houtui').click(function () {
-            console.log(222);
-            if ($('.foresee').css('left') <= '-1400px') {
-                $('.foresee').animate({
-                    left: '-600'
-                }, 2000);
-            } else {
-                $('.foresee').animate({
-                    left: '0'
-                }, 1000);
-            }
 
-        })
     }
 
     //动态渲染七天天气图片
@@ -1032,6 +970,60 @@
             }
         })
     }
+
+    //点击切换查看24小时温度变化
+    $('.container>.btn>.qianjin').on('click', function () {
+        //    $('.foresee').left = '-20'+px
+        console.log(111);
+        if ($('.foresee').css('left') <= '0px') {
+            $('.foresee').animate({
+                left: '-1400'
+            }, 1000);
+        }
+
+    })
+    //点击切换查看24小时温度变化
+    $('.container>.btn>.houtui').click(function () {
+        console.log(222);
+        if ($('.foresee').css('left') <= '-1400px') {
+            $('.foresee').animate({
+                left: '0'
+            }, 1000);
+        }
+
+    })
+
+    $('.item-all .tips-item').mouseenter(
+        function () {
+            $(this).find('.inner1').animate({
+                top: '-100'
+            })
+            $(this).find('.inner2').animate({
+                top: '30'
+            })
+        }
+    );
+    $('.item-all .tips-item').mouseleave(
+        function () {
+            $(this).find('.inner1').animate({
+                top: '30'
+            }, 1000)
+            $(this).find('.inner2').animate({
+                top: '150'
+            }, 1000)
+        }
+
+    );
+    $('#next').click(function () {
+        $('.item-all').animate({
+            left: '-420'
+        }, 500)
+    })
+    $('#prev').click(function () {
+        $('.item-all').animate({
+            left: '0'
+        })
+    })
 </script>
 
 
