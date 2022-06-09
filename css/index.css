@@ -773,6 +773,9 @@ body {
 .tengxun .weather-change .seven-days #ct-weather {
   position: relative;
 }
+.tengxun .weather-change .seven-days #ct-weather .today {
+  background-color: #f8faff;
+}
 .tengxun .weather-change .seven-days #ct-weather .weather-list {
   display: flex;
   justify-content: space-between;
@@ -830,6 +833,21 @@ body {
   line-height: 12px;
   height: 12px;
 }
+.tengxun .weather-change .seven-days #ct-weather .weather-list .first .day,
+.tengxun .weather-change .seven-days #ct-weather .weather-list .first .date {
+  color: #c2c2c2;
+}
+.tengxun .weather-change .seven-days #ct-weather .weather-list .first .ct-daytime .weather-status,
+.tengxun .weather-change .seven-days #ct-weather .weather-list .first .ct-night .weather-status {
+  color: #c2c2c2;
+}
+.tengxun .weather-change .seven-days #ct-weather .weather-list .first .ct-daytime img,
+.tengxun .weather-change .seven-days #ct-weather .weather-list .first .ct-night img {
+  opacity: 0.3;
+}
+.tengxun .weather-change .seven-days #ct-weather .weather-list .first .ct-night .wind {
+  color: #c2c2c2;
+}
 .tengxun .weather-change .rigth-tips {
   width: 500px;
   height: 550px;
@@ -855,7 +873,6 @@ body {
 .tengxun .weather-change .rigth-tips .but {
   float: right;
   margin-bottom: 10px;
-  display: inline-block;
 }
 .tengxun .weather-change .rigth-tips .but img {
   display: inline-block;
