@@ -415,6 +415,10 @@ body {
             }
 
             #ct-weather {
+                
+                .today{
+                    background-color: #f8faff;
+                }
                 position: relative;
 
                 .weather-list {
@@ -484,9 +488,30 @@ body {
                             }
                         }
                     }
+                
+                    .first{
+                        .day,.date{
+                            color: #c2c2c2;
+                        }
+                        .ct-daytime,.ct-night{
+                            .weather-status{
+                                color: #c2c2c2;
+                            }
+                            img{
+                                opacity: .3;
+                            }
+                        }
+                        .ct-night{
+                            .wind{
+                                color: #c2c2c2; 
+                            }
+                        }
+                        
+                    }
                 }
 
             }
+            
         }
 
         .rigth-tips {
@@ -516,7 +541,7 @@ body {
             .but {
                 float: right;
                 margin-bottom: 10px;
-                display: inline-block;
+                // display: inline-block;
 
                 img {
                     // margin-left: 10px;
